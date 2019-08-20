@@ -32,3 +32,32 @@ $background-opacity: 0.6;
     }
   }
 }
+
+// MEDIA QUERY MIXIN
+@mixin mediaSm {
+  // this css will only be applied when the window is 500px. This to accomodate for phone size
+  @media screen and (max-width: 500px) {
+    @content;
+  }
+}
+
+@mixin mediaMd {
+  // this css will only be applied when the window is 500px.
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mediaLg {
+  // this css will only be applied when the window is 500px.
+  @media screen and (min-width: 769px) and (max-width: 1170px) {
+    @content;
+  }
+}
+
+@mixin mediaXL {
+  // this css will only be applied when the window is 500px.
+  @media screen and (min-width: 1171px) {
+    @content;
+  }
+}
