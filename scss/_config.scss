@@ -43,14 +43,14 @@ $background-opacity: 0.6;
 
 @mixin mediaMd {
   // this css will only be applied when the window is 500px.
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 670px) {
     @content;
   }
 }
 
 @mixin mediaLg {
   // this css will only be applied when the window is 500px.
-  @media screen and (min-width: 769px) and (max-width: 1170px) {
+  @media screen and (min-width: 671px) and (max-width: 1170px) {
     @content;
   }
 }

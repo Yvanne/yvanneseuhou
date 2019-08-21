@@ -1,6 +1,5 @@
 @import "config";
 @import "menu";
-@import "mobile";
 
 * {
   box-sizing: border-box;
@@ -52,7 +51,8 @@ header {
 
 main {
   padding: 4rem;
-  height: 100%;
+  // so the footer stays at the same position even if we remove the grids in about me
+  min-height: calc(100vh - 60px);
 
   .icons {
     margin-top: 1rem;
@@ -74,3 +74,92 @@ main {
     }
   }
 }
+
+.about-info {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-areas:
+    "bioimage bio bio"
+    "job1 job2 job3";
+  grid-template-columns: repeat(3, 1fr);
+
+  .bio-image {
+    grid-area: bioimage;
+    margin: auto;
+    height: 250px;
+    border-radius: 50%;
+    border: $secondary-color 3px solid;
+  }
+
+  .bio {
+    grid-area: bio;
+    font-size: 1.5rem;
+  }
+  .job-1 {
+    grid-area: job1;
+  }
+  .job-2 {
+    grid-area: job2;
+  }
+  .job-3 {
+    grid-area: job3;
+  }
+
+  .job {
+    background: lighten($color: $primary-color, $amount: 5);
+    padding: 0.5rem;
+    border-bottom: $secondary-color 5px solid;
+  }
+}
+
+// WORK/ PROJECTS PAGE
+
+.projects {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+
+  img {
+    width: 100%;
+    border: 3px $secondary-color solid;
+
+    &:hover {
+      opacity: 0.7;
+      border-color: $primary-color;
+      @include easeOut;
+    }
+  }
+}
+
+// BUTTON STYLES OF WORK PAGE
+// this btn class is not declared inside the wotk.html, it's created here to we can extend it to the btn classes we do have in the work.html page
+.btn {
+  display: block;
+  padding: 0.5rem 1 rem;
+  border: 0;
+  margin-bottom: 0.3rem;
+
+  &:hover {
+    opacity: 0.9;
+    background: $secondary-color;
+    color: $primary-color;
+    @include easeOut;
+  }
+}
+
+.btn-dark {
+  @extend .btn;
+  background: rgb(0, 0, 0);
+  color: $secondary-color;
+  border: 1px $secondary-color solid;
+}
+
+#main-footer {
+  text-align: center;
+  padding: 1rem;
+  background: lighten($secondary-color, 10);
+  height: 60px;
+  color: #000000;
+}
+
+@import "mobile";
